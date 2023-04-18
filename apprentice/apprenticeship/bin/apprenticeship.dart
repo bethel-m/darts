@@ -1,58 +1,65 @@
 import 'dart:math';
 import 'package:characters/characters.dart';
 import 'package:apprenticeship/apprenticeship.dart' as apprenticeship;
+import 'package:test/test.dart';
 
+enum hl {
+  lsd,
+  sdkls,
+}
 void main() {
+  var lss = hl.lsd;
+  print(lss.index);
+  print(hl);
+switch (lss){
+  case hl.lsd:
+  print("object");
+  break;
+  case hl.sdkls:
+  print("object");
+  break;
+}
   print('Hello world: ${apprenticeship.calculate()}!');
   jump();
 
-  const int age = 22;
-  int dogs = 3;
-  dogs++;
-  print(dogs);
+  var attendance = (90 * 20)/100;
+  var homework = (80 * 30)/100;
+  var exam = (80 * 50)/100;
+  final grade = exam + homework + attendance;
+  print("attendance: $attendance%,homework: $homework%,exam :$exam%");
+  print("grade ${grade.toInt()}");
 
-  const x = 46;
-  const y = 10;
-  const answer1 = (x * 100) + y;
-  const answer2 = (x * 100) + (y * 100);
-  const answer3 = (x * 100) + (y / 10);
-  print("${answer2},${answer3},${answer1}");
+  const rom = "🇷🇴";
+  const chad = "🇹🇩";
+print("objec------------------------------t");
+  for (var codepoint in rom.runes){
+    print(String.fromCharCode(codepoint));
+  }
+print(rom);
+print("objec------------------------------t");
+  for (var codepoint in rom.codeUnits){
+    print(String.fromCharCode(codepoint));
+    print(codepoint);
+  }
+print("objec------------------------------t");
+  for (var codepoint in rom.characters){
+    print(codepoint);
+  }
 
-  double rating1 = 23.4;
-  double rating2 = 232.23;
-  double rating3 = 89;
-  final averageRating = (rating1 + rating2 + rating3) / 3;
-  const a = 3;
-  const b = 12;
-  const c = 8;
+  print(rom.codeUnits);
+  print("${rom.runes} is romania");
+  print("${chad.runes} is chad");
+  print(chad.codeUnits);
 
-  final root1 = (-b + sqrt(pow(b , 2) - 4 * a * c)) / (2 * a);
-  final root2 = (-b - sqrt(pow(b , 2) - 4 * a * c)) / (2 * a);
-  print("roots: $root2,$root1");
-  print(root1.runtimeType);
-  var multi = 23;
-  final fists = (root1 * multi).toInt();
-  var salut = "👩‍👩‍👧‍👦";
-  print(salut.runes.length);
-  print(salut.codeUnits.length);
-  print(salut.characters.length);
-
-  final message = StringBuffer();
-  message.write("wetin");
-  message.write(" de sup");
-  message.write("rison for dem ");
-  message.writeln("Nothing much");
-  message.toString();
-  print(message);
-  print('I \u2764 Dart\u2100');
-  dynamic lsd = "dsfas";
-  Object sldff = 32;
-  print(lsd.runtimeType);
-  print(sldff.runtimeType);
-  lsd = 23;
-  sldff = "sds";
-  print(lsd.runtimeType);
-  print(sldff.runtimeType);
+  const vote = "Thumbs up! 👍🏿";
+  print(vote.codeUnits);
+  print(vote.runes);
+  print(vote.characters.length);
+  const value = 10 / 2;
+  const number = 10;
+const multiplier = 5;
+ final summary = '$number \u00D7 $multiplier = ${number * multiplier}';
+ print(summary);
 }
 
 // just a comment for jumping
