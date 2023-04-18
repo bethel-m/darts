@@ -1,5 +1,3 @@
-import 'dart:math';
-
 main() {
   const minuteConst = 60;
   var mil;
