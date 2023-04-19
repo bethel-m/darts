@@ -1,36 +1,46 @@
+import 'dart:math';
+import 'package:characters/characters.dart';
+import 'package:apprenticeship/apprenticeship.dart' as apprenticeship;
+import 'package:test/test.dart';
+
+enum hl {
+  lsd,
+  sdkls,
+}
 void main() {
-  final bert =  Student("bert","ernie",3);
-  print(bert);
-  var spe = Sphere(12);
-  print(spe.area);
-  print(spe.volume);
-}
-
-class Student{
-  final String firstName;
-  final String lastName;
-  int grade;
-  Student(this.firstName,this.lastName,this.grade);
-  @override
-  String toString() {
-    // TODO: implement toString
-    return "$firstName scored $grade";
-  }
-}
-
-class Sphere{
-  //A=4πr2 V=4/3(πr3)
+  print('Hello world: ${apprenticeship.calculate()}!');
+  jump();
   
-  static const double pi= 3.14159265359;
-  const Sphere(this.radius)
-  : assert(radius>=0);
-  final double radius ;
-  double get volume{
-    double v = (4/3)*pi*radius*radius*radius;
-    return v;
-  }
-  double get area{
-    double a = 4 * pi * radius * radius;
-    return a;
+  print(isPrime(25));
+  Function square = (int n) => n * n;
+
+  print(repeatTask(4, 2, square));
+  int funcs(){
+    return 3;
   }
 }
+
+bool isPrime(int number){
+  for (int i = 2;i <number;i++){
+    if (number % i == 0){
+      return false;
+    }
+  }
+  return true;
+}
+
+int repeatTask(int times,int input, Function task){
+  for (int i = 0;i <times;i++){
+    input = task(input);
+  }
+  return input;
+}
+
+// just a comment for jumping
+///documentation for jump
+jump() {
+  print("object");
+  print(4 / 2);
+  print(5 ~/ 4);
+}
+
