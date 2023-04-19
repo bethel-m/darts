@@ -10,31 +10,54 @@ enum hl {
 void main() {
   print('Hello world: ${apprenticeship.calculate()}!');
   jump();
-  
-  print(isPrime(25));
-  Function square = (int n) => n * n;
 
-  print(repeatTask(4, 2, square));
-  int funcs(){
-    return 3;
-  }
-}
-
-bool isPrime(int number){
-  for (int i = 2;i <number;i++){
-    if (number % i == 0){
-      return false;
+  var number = 946;
+  var n = 0;
+  while(true){
+    if (pow(2,n)>= number){
+      print("found it");
+      print("its 2 raise power of $n");
+      break;
     }
+    n++;
   }
-  return true;
+
+  var nth=1;
+  var n1 = 1;
+  var n2 = 1;
+  var nv;
+  if (nth == 0 || nth == 1){
+    print("the $nth fibonacci is 1");
+  }
+if (nth > 2){  for (int i=2;i < nth;i++){
+     nv = n1 + n2;
+     n1 =n2;
+     n2 = nv;
+
+  }
+  print("the $nth fibonacci number is $nv");
+  }
+
+
+  for(int i = 10;i >= 0; i--){
+    print(i);
+  }
+
+  for (int i = 0; i <= 10; i++){
+  print(i/10);
 }
 
-int repeatTask(int times,int input, Function task){
-  for (int i = 0;i <times;i++){
-    input = task(input);
-  }
-  return input;
+var func = (int jds){
+  return 423;
+};
+
+const numbers = [3,4,5,7];
+numbers.forEach((element) {
+  final tripled = element * 3;
+  print(tripled);
+});
 }
+
 
 // just a comment for jumping
 ///documentation for jump
@@ -43,4 +66,3 @@ jump() {
   print(4 / 2);
   print(5 ~/ 4);
 }
-
