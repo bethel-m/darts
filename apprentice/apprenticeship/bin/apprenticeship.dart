@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:html';
 import 'dart:io';
+import 'dart:isolate';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async{
@@ -57,6 +59,20 @@ Future<void> main() async{
       subscription?.cancel();
     },
     );
+
+
+
+
+  final recievport = ReceivePort();
+  final isolate = await Isolate.spawn(
+    fibonacci,
+    [recievport.sendPort,5]
+    );
+  recievport.listen((message) {
+    print(message);
+    recievport.close();
+    isolate.kill();
+  });
 }
 
 class Comment{
@@ -129,15 +145,22 @@ class Todo{
 
 
 
-int fibonacci(int n){
-  var current = 1;
-  var previous = 1;
-  var done = 2;
-  while (done < n) {
-    final next = current + previous;
-    previous = current;
-    current = next;
-    done += 1;
+ fibonacci(List<dynamic> args){
+  var n1 = 1;
+  var n2 = 1;
+  var current;
+  final sendport = args[0] as SendPort;
+  final nth = args[1] as int;
+  if (nth == 0 || nth == 1){
+    sendport.send(1);
   }
-  return current;
+if (nth > 2){  
+  for (int i=2;i < nth; i++){
+     current = n1 + n2;
+     n1 =n2;
+     n2 = current;
+  }
 }
+sendport.send(current);
+}
+
